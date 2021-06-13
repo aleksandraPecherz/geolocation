@@ -1,0 +1,128 @@
+:root {
+  --main-radius: 5px;
+  --main-padding: 10px;
+}
+p, h3, h4, h2{
+  margin: 1px;
+  text-align: center;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.searchInput{
+  width:50vh;
+  border: 2px solid black;
+  margin-right: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+}
+h3{
+  margin-top:10px;
+  margin-bottom: 10px;
+  color:red;
+}
+ul{
+  padding: var(--main-padding);
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+button{
+  background-color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+}
+button:hover{
+  color: red;
+}
+.app-container{
+  display: grid;
+  padding: var(--main-padding);
+  grid-template-columns: 0.7fr 1fr 1fr ;
+  grid-template-rows: 1fr 0.3fr 1fr ;
+  height: 95vh;
+  grid-gap: 0.7rem;
+  grid-template-areas: 
+  "searched-list user-map user-info"
+  "searched-list search-engine search-engine"
+  "searched-list searched-map searched-info";
+}
+.search-engine, .searched-info, .search-engine, .searched-list, .searched-map, .user-info, .user-map{
+  border-radius: var(--main-radius);
+  padding: var(--main-padding);
+  border: 5px solid black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.list-element{
+  display: grid;
+  grid-template-columns: 1fr 0.2fr ;
+  grid-template-rows: 1fr 1fr ;
+  height: 50px;
+  grid-template-areas: 
+  "main-information go-to-button"
+  "location-information go-to-button";
+  background-color: whitesmoke;
+  margin: 5px;
+  
+}
+.main-information{
+  grid-area: main-information;
+}
+.location-information{
+  grid-area: location-information;
+}
+.go-to-button{
+  grid-area: go-to-button;
+}
+.searched-list{
+  grid-area: searched-list;
+  justify-content:flex-start;
+}
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 3px;
+}
+.user-map{
+  grid-area: user-map;
+  position: relative;
+}
+.user-info{
+  grid-area: user-info;
+}
+.search-engine{
+  grid-area: search-engine;
+  
+}
+.searched-map{
+  grid-area: searched-map;
+  position: relative;
+}
+.searched-info{
+  grid-area: searched-info;
+}
+.map{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.mapboxgl-control-container{
+  display: none
+}
+@media only screen and (max-width: 550px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr 1fr 4fr 1.2fr 1.2fr;
+    grid-template-areas:
+      "user-map"
+      "user-info"
+      "search-engine"
+      "searched-map"
+      "searched-info"
+      "searched-list";
+  }
+}
